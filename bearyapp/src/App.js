@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './components/home/Home';
 import Configure from './components/configure/Configure';
+import Logs from './components/logs/Logs';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Switch>
           <Route path='/' component={Home}/>
           <Route path='/configure' component={Configure}/>
+          <Route path='/logs' component={Logs}/>
         </Switch>
       </BrowserRouter>
     </div>
