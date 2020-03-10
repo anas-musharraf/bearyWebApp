@@ -1,6 +1,10 @@
 
 @import url("//fonts.googleapis.com/css?family=Chewy");
 
+.homePage {
+
+}
+
 .header {
     background-color: #FFDE59;
     font-family: 'Chewy';
@@ -11,9 +15,10 @@
 
 .ConfigButton {
     font-family: 'Chewy';
-    background-color: gold;
+    background-color: #FFDE59;
     font-size: 40px;
-    padding: 100px;
+    height: 250px;
+    width: 250px;
     float: left;
     margin-left:200px;
     margin-top: 50px;
@@ -21,10 +26,15 @@
 
 .LogButton {
     font-family: 'Chewy';
-    background-color: gold;
+    background-color: #FFDE59;
     font-size: 40px;
-    padding: 100px;
+    height: 250px;
+    width: 250px;
     float: right;
     margin-right:200px;
     margin-top: 50px;
+}
+
+.Links {
+    color: black;
 }

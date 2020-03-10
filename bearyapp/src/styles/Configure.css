@@ -2,7 +2,21 @@
 @import url("//fonts.googleapis.com/css?family=Chewy");
 
 .header {
-    background-color: gold;
+    background-color: #FFDE59;
     font-family: 'Chewy';
-    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Links {
+    color: black;
+}
+
+.Navigation {
+    background-color: #FFDE59;
+    font-family: 'Chewy';
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

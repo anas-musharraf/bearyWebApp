@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,13 +10,13 @@ import Logs from './components/logs/Logs';
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <Router>
         <Switch>
           <Route path='/' component={Home}/>
           <Route path='/configure' component={Configure}/>
           <Route path='/logs' component={Logs}/>
         </Switch>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
