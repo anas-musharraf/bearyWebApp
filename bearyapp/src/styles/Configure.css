@@ -13,6 +13,12 @@
     color: black;
 }
 
+.NavLinks {
+    color: black;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 .Navigation {
     background-color: #FFDE59;
     font-family: 'Chewy';

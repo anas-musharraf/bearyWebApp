@@ -1,9 +1,6 @@
 
 @import url("//fonts.googleapis.com/css?family=Chewy");
 
-.homePage {
-
-}
 
 .header {
     background-color: #FFDE59;
@@ -37,4 +34,18 @@
 
 .Links {
     color: black;
+}
+
+.Navigation {
+     background-color: #FFDE59;
+     font-family: 'Chewy';
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+.NavLinks {
+    color: black;
+    margin-right: 10px;
+    margin-left: 10px;
 }
