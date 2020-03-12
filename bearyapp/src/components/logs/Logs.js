@@ -15,6 +15,23 @@ function Logs() {
                 <Link className={"NavLinks"} to="/configure"><h5> Configure </h5></Link>
                 <Link className={"NavLinks"} to="/logs"><h5> Logs </h5></Link>
             </div>
+
+
+            <h4 className={"Headings"}>CONFIGURE</h4>
+
+
+            <div className={"Table"}>
+                <div className="row">
+                    <div className={"col-sm-3"}>Time</div>
+                    <div className={"col-sm-3"}>Emotion</div>
+                    <div className={"col-sm-6"}>Conversation</div>
+                </div>
+
+
+            </div>
+
+
+
         </div>
     );
 }
