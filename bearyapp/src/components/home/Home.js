@@ -11,12 +11,12 @@ function Home() {
     <BodyBackgroundColor backgroundColor='#fffef6'>
     </BodyBackgroundColor>
     <div className={"header"}>
-        <Link to={"./../Home"} className={"Links"}><h1>Beary</h1></Link>
+        <Link to="/" className={"Links"}><h1>Beary</h1></Link>
     </div>
 
     <div>
-        <Link to={"./../Configure"} className={"Links"}><Button className={"ConfigButton"} variant="warning">Configure</Button></Link>
-        <Link to={"./../Logs"} className={"Links"}><Button className={"LogButton"} variant="warning">Logs</Button></Link>
+        <Link to="/configure" className={"Links"}><Button className={"ConfigButton"} variant="warning">Configure</Button></Link>
+        <Link to="/logs" className={"Links"}><Button className={"LogButton"} variant="warning">Logs</Button></Link>
     </div>
     </div>
 );
