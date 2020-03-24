@@ -4,6 +4,7 @@ const log = console.log;
 const express = require("express");
 const app = express();
 const fs = require('fs');
+const cors = require('cors');
 
 
 const bodyParser = require("body-parser");
@@ -12,6 +13,12 @@ app.use(bodyParser.json());
 //const session = require("express-session");
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let corsOptions = {
+    origin: ['http://localhost:3000'],
+    credentials: true
+  };
+  
+  app.use(cors(corsOptions)); // to accept request from other ports
 
 /////////// DB operations //////////////////
 const dbPath = "./db/responses.json";
@@ -29,6 +36,7 @@ function readDB() {
 }
 
 function saveToDB(emotion, text) {
+    let matched = false;
     log("writing the db file");
     // read the db file
     const responseObj = readDB();
@@ -37,11 +45,12 @@ function saveToDB(emotion, text) {
         const emotionObj = responseObj[i];
         if (emotionObj.emotion === emotion) {
             emotionObj.responses.push(text);
+            matched = true;
             break;
         }
     }
-
-    if (responseObj.length == 0) {
+    
+    if (!matched) {
         responseObj.push(
             {
                 emotion: emotion,

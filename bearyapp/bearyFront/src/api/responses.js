@@ -56,7 +56,7 @@ export const addResponse = (response) => {
   
     // Create our request constructor with all the parameters we need
     const request = new Request(domain_url + url, {
-      method: "post",
+      method: "POST",
       body: JSON.stringify(response),
       credentials: "include",
       headers: {
