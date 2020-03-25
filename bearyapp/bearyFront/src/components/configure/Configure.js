@@ -59,7 +59,8 @@ class Configure extends React.Component {
       </div>
       <div className={"Navigation"}>
           <Link className={"NavLinks"} to="/configure"><h5> Configure </h5></Link>
-          <Link className={"NavLinks"} to="/logs"><h5> Logs </h5></Link>
+          <Link className={"NavLinks"} to="/logs"><h5> Response Logs </h5></Link>
+          <Link className={"NavLinks"} to="/interactionlogs"><h5> Interaction Logs </h5></Link>
       </div>
 
       <div>
@@ -92,7 +93,7 @@ class Configure extends React.Component {
                     <option>indifferent</option>
                   </Form.Control>
               </Col>
-              <Col sm={10}>
+              <Col sm={{ span: 10, offset: 2 }}>
                   <Form.Control type="text" placeholder="Lets sing a song!" 
                   onInput={this.inputText} />
               </Col>

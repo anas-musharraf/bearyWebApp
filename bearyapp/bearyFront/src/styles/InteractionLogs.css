@@ -1,0 +1,38 @@
+
+@import url("//fonts.googleapis.com/css?family=Chewy");
+@import url("//fontlibrary.org/face/cooper-hewitt");
+
+.header {
+    background-color: #FFDE59;
+    font-family: 'Chewy';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Links {
+    color: black;
+}
+
+.NavLinks {
+    color: black;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.Navigation {
+    background-color: #FFDE59;
+    font-family: 'Chewy';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Headings {
+    font-family: 'CooperHewittBold';
+    font-weight: bold;
+    font-style: normal;
+    margin-left: 300px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

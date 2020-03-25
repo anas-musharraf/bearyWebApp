@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5ba5548-0e5a-4ca9-b2bd-79a5fc1bd0f1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/bearyapp/src/components/logs/Logs.js" beforeDir="false" afterPath="$PROJECT_DIR$/bearyapp/src/components/logs/Logs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bearyapp/src/styles/Configure.css" beforeDir="false" afterPath="$PROJECT_DIR$/bearyapp/src/styles/Configure.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bearyapp/src/styles/Logs.css" beforeDir="false" afterPath="$PROJECT_DIR$/bearyapp/src/styles/Logs.css" afterDir="false" />
-    </list>
+    <list default="true" id="f5ba5548-0e5a-4ca9-b2bd-79a5fc1bd0f1" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -239,16 +235,15 @@
       <updated>1583535654084</updated>
       <workItem from="1583535658078" duration="492000" />
       <workItem from="1583769024853" duration="8443000" />
-      <workItem from="1583875431758" duration="6294000" />
+      <workItem from="1583875431758" duration="6488000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15229000" />
+    <option name="totallyTimeSpent" value="15423000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />

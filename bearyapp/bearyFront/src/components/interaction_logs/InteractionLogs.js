@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 
-import '../../styles/Logs.css';
+import '../../styles/InteractionLogs.css';
 import BodyBackgroundColor from "react-body-backgroundcolor";
 import { getResponses } from '../../api/responses';
 
-class Logs extends React.Component {
+class InteractionLogs extends React.Component {
   state = {
     responses: []
   }
@@ -47,6 +47,7 @@ class Logs extends React.Component {
             <tr>
               <th>#</th>
               <th>Emotion</th>
+              <th>Child Response</th>
               <th>Response</th>
             </tr>
           </thead>
@@ -71,7 +72,7 @@ render() {
                 <Link className={"NavLinks"} to="/logs"><h5> Response Logs </h5></Link>
                 <Link className={"NavLinks"} to="/interactionlogs"><h5> Interaction Logs </h5></Link>
             </div>
-            <h4 className={"Headings"}>RESPONSE LOGS</h4>
+            <h4 className={"Headings"}>INTERACTION LOGS</h4>
 
             <div>
               {this.getResponsesTable()}
@@ -81,4 +82,4 @@ render() {
     }
 }
 
-export default Logs;
+export default InteractionLogs;
