@@ -74,4 +74,26 @@ export const addResponse = (response) => {
         console.log(error);
       });
   };
+
+
+    // GET all interactions
+    export const getInteractions = () => {
+      // the URL for the request
+      const url = "/interactions";
+    
+      const request = new Request(domain_url + url, global_options);
+    
+      return fetch(request)
+        .then(res => {
+          if (res.status === 200) {
+            return res.json();
+          } else {
+            alert("Could not get responses");
+          }
+        })
+        .catch(error => {
+          console.log("failed to get the resources")
+          console.log(error);
+        });
+    };
   

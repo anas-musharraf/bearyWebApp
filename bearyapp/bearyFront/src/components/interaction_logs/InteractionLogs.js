@@ -4,40 +4,38 @@ import Table from 'react-bootstrap/Table';
 
 import '../../styles/InteractionLogs.css';
 import BodyBackgroundColor from "react-body-backgroundcolor";
-import { getResponses } from '../../api/responses';
+import { getInteractions } from '../../api/responses';
 
 class InteractionLogs extends React.Component {
   state = {
-    responses: []
+    interactions: []
   }
 
   componentDidMount() {
-    this.getAllResponses();
+    this.getAllInteractions();
   }
 
-  getAllResponses = () => {
-    getResponses().then((events) => {
-      this.setState({responses: events});
+  getAllInteractions = () => {
+    getInteractions().then((events) => {
+      this.setState({interactions: events});
     });  
   }
 
   getResponsesTable() {
-    const { responses } = this.state;
+    const { interactions } = this.state;
     const rows = [];
     let rowNum = 1;
 
-    responses.forEach((e) => {
-      e.responses.forEach((r) => {
-        rows.push(
-          <tr key={`row_${rowNum}`}>
-            <td>{rowNum}</td>
-            <td>{e.emotion}</td>
-            
-            <td>{r}</td>
-          </tr>
-        )
-        rowNum++;
-      })
+    interactions.forEach((e) => {
+      rows.push(
+        <tr key={`row_${rowNum}`}>
+          <td>{rowNum}</td>
+          <td>{e.emotion}</td>
+          <td>{e.input}</td>
+          <td>{e.response}</td>
+        </tr>
+      )
+      rowNum++;
     });
 
     return (
@@ -47,8 +45,8 @@ class InteractionLogs extends React.Component {
             <tr>
               <th>#</th>
               <th>Emotion</th>
-              <th>Child Response</th>
-              <th>Response</th>
+              <th>Child Input</th>
+              <th>Beary's Response</th>
             </tr>
           </thead>
           <tbody>

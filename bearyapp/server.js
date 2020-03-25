@@ -21,9 +21,11 @@ let corsOptions = {
   app.use(cors(corsOptions)); // to accept request from other ports
 
 /////////// DB operations //////////////////
-const dbPath = `${__dirname}/db/responses.json`;
+const responsesDBPath = `${__dirname}/db/responses.json`;
+const interactionsDBPath = `${__dirname}/db/interactions.json`;
 
-function readDB() {
+
+function readDB(dbPath) {
     log("reading the db file");
     var data;
 
@@ -35,11 +37,11 @@ function readDB() {
     return data;
 }
 
-function saveToDB(emotion, text) {
+function saveResponses(dbPath, emotion, text) {
     let matched = false;
     log("writing the db file");
     // read the db file
-    const responseObj = readDB();
+    const responseObj = readDB(dbPath);
 
     for (var i = 0; i < responseObj.length; i++) {
         const emotionObj = responseObj[i];
@@ -68,11 +70,33 @@ function saveToDB(emotion, text) {
     }
 }
 
+function saveInteractions(dbPath, emotion, input, response) {
+    log("writing the db file");
+    // read the db file
+    const responseObj = readDB(dbPath);
+    
+    responseObj.push(
+        {
+            emotion: emotion,
+            input: input,
+            response: response
+        });
+
+    log(responseObj);
+    // write back to db file
+    try {
+        fs.writeFileSync(dbPath, JSON.stringify(responseObj));
+
+    } catch (e) {
+        log(e)
+    }
+}
+
 /////////////// Routes ////////////////////////
 
 // a GET route to get all responses
 app.get("/responses", (req, res) => {
-    const responses = readDB();
+    const responses = readDB(responsesDBPath);
     res.send( responses);
 });
 
@@ -82,7 +106,7 @@ app.get("/responses/:emotion", (req, res) => {
 
     log(emotion)
 
-    const responseObj = readDB();
+    const responseObj = readDB(responsesDBPath);
     log(responseObj);
 
     for (var i = 0; i < responseObj.length; i++) {
@@ -99,7 +123,25 @@ app.get("/responses/:emotion", (req, res) => {
 app.post("/responses", (req, res) => {
     const {emotion, text} = req.body;
     try {
-        saveToDB(emotion, text);
+        saveResponses(responsesDBPath, emotion, text);
+        res.send("Successfully stored into DB.");
+    } catch(e){
+        res.status(500).send(e);
+    }
+});
+
+
+// a GET route to read all interactions to a specific emotion
+app.get("/interactions", (req, res) => {
+    const interactions = readDB(interactionsDBPath);
+    res.send(interactions);
+});
+
+// a POST route to write interaction to a specific emotion
+app.post("/interactions", (req, res) => {
+    const {emotion, input, response} = req.body;
+    try {
+        saveInteractions(interactionsDBPath, emotion, input, response);
         res.send("Successfully stored into DB.");
     } catch(e){
         res.status(500).send(e);
