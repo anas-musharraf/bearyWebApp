@@ -14,14 +14,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let corsOptions = {
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000', 'https://bearyapp.herokuapp.com'],
     credentials: true
   };
   
   app.use(cors(corsOptions)); // to accept request from other ports
 
 /////////// DB operations //////////////////
-const dbPath = "./db/responses.json";
+const dbPath = `${__dirname}/db/responses.json`;
 
 function readDB() {
     log("reading the db file");

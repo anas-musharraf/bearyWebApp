@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 
-import { addResponse, getResponses } from '../../api/responses';
+import { addResponse } from '../../api/responses';
 
 class Configure extends React.Component {
     state = {
@@ -89,6 +89,7 @@ class Configure extends React.Component {
                     <option>Sad</option>
                     <option>Fear</option>
                     <option>Bored</option>
+                    <option>indifferent</option>
                   </Form.Control>
               </Col>
               <Col sm={10}>

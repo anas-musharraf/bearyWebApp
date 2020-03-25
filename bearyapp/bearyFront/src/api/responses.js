@@ -1,4 +1,4 @@
-const domain_url = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001"
+const domain_url = 'http://localhost:3001'
 
 const global_options = {
     credentials: 'include',
@@ -68,9 +68,7 @@ export const addResponse = (response) => {
     // Send the request with fetch()
     return fetch(request)
       .then(function (res) {
-        return res.json();
-      }).then((json) => {
-        return json;
+        return res;
       })
       .catch(error => {
         console.log(error);
