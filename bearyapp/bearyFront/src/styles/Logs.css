@@ -36,3 +36,9 @@
     margin-top: 25px;
     margin-bottom: 25px;
 }
+
+.LogsTable {
+    width:90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}

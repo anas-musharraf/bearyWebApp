@@ -32,7 +32,13 @@
     font-family: 'CooperHewittBold';
     font-weight: bold;
     font-style: normal;
-    margin-left: 300px;
+    margin-left: 500px;
     margin-top: 25px;
     margin-bottom: 25px;
+}
+
+.LogsTable {
+    width:90%;
+    margin-left: 5%;
+    margin-right: 5%;
 }

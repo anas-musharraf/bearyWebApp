@@ -42,7 +42,7 @@ class Logs extends React.Component {
 
     return (
       <div>
-        <Table striped bordered hover>
+        <Table striped bordered hover className={"LogsTable"}>
           <thead>
             <tr>
               <th>#</th>
@@ -71,7 +71,7 @@ render() {
                 <Link className={"NavLinks"} to="/logs"><h5> Response Logs </h5></Link>
                 <Link className={"NavLinks"} to="/interactionlogs"><h5> Interaction Logs </h5></Link>
             </div>
-            <h4 className={"Headings"}>RESPONSE LOGS</h4>
+            <h4 className={"Headings"}>Response Logs</h4>
 
             <div>
               {this.getResponsesTable()}
