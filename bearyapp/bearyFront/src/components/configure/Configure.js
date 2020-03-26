@@ -66,23 +66,21 @@ class Configure extends React.Component {
       <div>
         {hasAlert && alert}
       </div>
-
+      
+      <h4 className="Headings">Configure</h4>
+      
+      <div className="Form">
       <Form>
-          <Form.Group as={Form.Row} className={"Headings"}>
-              <Form.Label column sm={2}>
-                  <h4>CONFIGURE</h4>
+          <Form.Group as={Form.Row} className="FormRow">
+              <Form.Label column sm={2} className="FormCol">
+                  <h5>Emotion</h5>
+              </Form.Label>
+              <Form.Label column sm={2} className="FormCol">
+                  <h5>Response</h5>
               </Form.Label>
           </Form.Group>
-          <Form.Group as={Form.Row} className={"Headings"}>
-              <Form.Label column sm={2}>
-                  <h5>EMOTION</h5>
-              </Form.Label>
-                  <Form.Label column sm={2}>
-                      <h5>RESPONSE</h5>
-                  </Form.Label>
-          </Form.Group>
-          <Form.Group as={Form.Row} className={"SubHeadings"}>
-              <Col sm={2}>
+          <Form.Group as={Form.Row} className="FormRow">
+              <Col sm={2} className="FormCol">
                   <Form.Control as="select" onChange={this.inputEmotion}>
                     <option>Happy</option>
                     <option>Angry</option>
@@ -93,7 +91,7 @@ class Configure extends React.Component {
                     <option>indifferent</option>
                   </Form.Control>
               </Col>
-              <Col sm={{ span: 10, offset: 2 }}>
+              <Col sm={{ span: 10, offset: 2 }} className="FormCol">
                   <Form.Control type="text" placeholder="Lets sing a song!" 
                   onInput={this.inputText} />
               </Col>
@@ -105,6 +103,7 @@ class Configure extends React.Component {
               </Col>
           </Form.Group>
           </Form>
+        </div>
       </div>
     );
   }

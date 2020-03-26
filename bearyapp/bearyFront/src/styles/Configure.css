@@ -32,9 +32,9 @@
     font-family: 'CooperHewittBold';
     font-weight: bold;
     font-style: normal;
-    margin-left: 300px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .SubHeadings {
@@ -52,7 +52,18 @@
     display: flex;
 }
 
+.Form {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.FormCol {
+    width: 40%;
+    flex: none;
+    max-width: none;
+    margin-right: 20px;
+}
+
 .saveButton {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
