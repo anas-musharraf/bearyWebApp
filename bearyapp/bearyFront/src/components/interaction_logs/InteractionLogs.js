@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
+import { Button, Row, Col } from 'react-bootstrap';
+
 
 import '../../styles/InteractionLogs.css';
 import BodyBackgroundColor from "react-body-backgroundcolor";
-import { getInteractions } from '../../api/responses';
+import { getInteractions, deleteInteractions } from '../../api/responses';
 
 class InteractionLogs extends React.Component {
   state = {
@@ -19,6 +21,12 @@ class InteractionLogs extends React.Component {
     getInteractions().then((events) => {
       this.setState({interactions: events});
     });  
+  }
+
+  onClearClick = () => {
+    deleteInteractions().then(e => {
+      this.getAllInteractions();
+    });
   }
 
   getResponsesTable() {
@@ -67,11 +75,17 @@ render() {
             </div>
             <div className={"Navigation"}>
                 <Link className={"NavLinks"} to="/configure"><h5> Configure </h5></Link>
-                <Link className={"NavLinks"} to="/logs"><h5> Response Logs </h5></Link>
+                <Link className={"NavLinks"} to="/logs"><h5> Responses </h5></Link>
                 <Link className={"NavLinks"} to="/interactionlogs"><h5> Interaction Logs </h5></Link>
             </div>
-            <h4 className={"Headings"}>Interaction Logs</h4>
-
+            <Row className='mt-4'>
+              <Col sm={{ span: 5 }}>
+                <h4 className={"Headings"}>Interaction Logs</h4>
+              </Col>
+              <Col sm={{ span: 4, offset: 2 }}>
+                <Button variant="outline-danger" onClick={this.onClearClick}>Clear all</Button>
+              </Col>
+            </Row>
             <div>
               {this.getResponsesTable()}
             </div>

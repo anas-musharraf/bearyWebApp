@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
+import { Button } from 'react-bootstrap';
 
 import '../../styles/Logs.css';
 import BodyBackgroundColor from "react-body-backgroundcolor";
-import { getResponses } from '../../api/responses';
+import { getResponses, deleteResponse } from '../../api/responses';
 
 class Logs extends React.Component {
   state = {
@@ -21,6 +22,17 @@ class Logs extends React.Component {
     });  
   }
 
+  onRemoveClick = (e) => {
+    const response = {
+      emotion: e.target.parentNode.previousSibling.previousSibling.innerText,
+      text: e.target.parentNode.previousSibling.innerText
+    }
+
+    deleteResponse(response).then(e => {
+      this.getAllResponses();
+    });
+  }
+
   getResponsesTable() {
     const { responses } = this.state;
     const rows = [];
@@ -32,8 +44,8 @@ class Logs extends React.Component {
           <tr key={`row_${rowNum}`}>
             <td>{rowNum}</td>
             <td>{e.emotion}</td>
-            
             <td>{r}</td>
+            <td><Button variant="outline-danger" onClick={this.onRemoveClick}>Remove</Button></td>
           </tr>
         )
         rowNum++;
@@ -48,6 +60,7 @@ class Logs extends React.Component {
               <th>#</th>
               <th>Emotion</th>
               <th>Response</th>
+              <th>Remove</th>
             </tr>
           </thead>
           <tbody>
@@ -59,6 +72,7 @@ class Logs extends React.Component {
   }
 
 render() {
+  console.log(this.state);
     return (
         <div>
             <BodyBackgroundColor backgroundColor='#fffef6'>
@@ -68,10 +82,10 @@ render() {
             </div>
             <div className={"Navigation"}>
                 <Link className={"NavLinks"} to="/configure"><h5> Configure </h5></Link>
-                <Link className={"NavLinks"} to="/logs"><h5> Response Logs </h5></Link>
+                <Link className={"NavLinks"} to="/logs"><h5> Responses </h5></Link>
                 <Link className={"NavLinks"} to="/interactionlogs"><h5> Interaction Logs </h5></Link>
             </div>
-            <h4 className={"Headings"}>Response Logs</h4>
+            <h4 className={"Headings"}>Responses</h4>
 
             <div>
               {this.getResponsesTable()}

@@ -70,6 +70,8 @@ function saveResponses(dbPath, emotion, text) {
     }
 }
 
+
+
 function saveInteractions(dbPath, emotion, input, response) {
     log("writing the db file");
     // read the db file
@@ -83,6 +85,42 @@ function saveInteractions(dbPath, emotion, input, response) {
         });
 
     log(responseObj);
+    // write back to db file
+    try {
+        fs.writeFileSync(dbPath, JSON.stringify(responseObj));
+
+    } catch (e) {
+        log(e)
+    }
+}
+
+function deleteInteractions(dbPath) {
+    console.log("deleting interactions");
+    const responseObj = [];
+    try {
+        fs.writeFileSync(dbPath, JSON.stringify(responseObj));
+
+    } catch (e) {
+        log(e)
+    }
+}
+
+function deleteResponse(dbPath, emotion, text) {
+    console.log("deleting a response");
+    // read the db file
+    const responseObj = readDB(dbPath);
+
+    for (var i = 0; i < responseObj.length; i++) {
+        const emotionObj = responseObj[i];
+        if (emotionObj.emotion === emotion) {
+            const index = emotionObj.responses.indexOf(text);
+            if (index > -1) {
+                emotionObj.responses.splice(index, 1);
+            }
+            break;
+        }
+    }
+
     // write back to db file
     try {
         fs.writeFileSync(dbPath, JSON.stringify(responseObj));
@@ -143,6 +181,27 @@ app.post("/interactions", (req, res) => {
     try {
         saveInteractions(interactionsDBPath, emotion, input, response);
         res.send("Successfully stored into DB.");
+    } catch(e){
+        res.status(500).send(e);
+    }
+});
+
+// a POST route to delete a response to a specific emotion
+app.post("/deleteresponse", (req, res) => {
+    const {emotion, text} = req.body;
+    try {
+        deleteResponse(responsesDBPath, emotion, text);
+        res.send("Successfully deleted from db.");
+    } catch(e){
+        res.status(500).send(e);
+    }
+});
+
+// a POST route to delete a response to a specific emotion
+app.post("/deleteinteractions", (req, res) => {
+    try {
+        deleteInteractions(interactionsDBPath);
+        res.send("Successfully deleted from db.");
     } catch(e){
         res.status(500).send(e);
     }

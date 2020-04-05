@@ -1,3 +1,4 @@
+//const domain_url = 'https://bearyapp.herokuapp.com'
 const domain_url = 'http://localhost:3001'
 
 const global_options = {
@@ -75,25 +76,76 @@ export const addResponse = (response) => {
       });
   };
 
+// POST request to delete a response, it has to be an obj = {emotion:   , text:  }
+export const deleteResponse = (response) => {
+  // the URL for the request
+  const url = "/deleteresponse";
 
-    // GET all interactions
-    export const getInteractions = () => {
-      // the URL for the request
-      const url = "/interactions";
-    
-      const request = new Request(domain_url + url, global_options);
-    
-      return fetch(request)
-        .then(res => {
-          if (res.status === 200) {
-            return res.json();
-          } else {
-            alert("Could not get responses");
-          }
-        })
-        .catch(error => {
-          console.log("failed to get the resources")
-          console.log(error);
-        });
-    };
+  // Create our request constructor with all the parameters we need
+  const request = new Request(domain_url + url, {
+    method: "POST",
+    body: JSON.stringify(response),
+    credentials: "include",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json"
+    }
+  });
+
+  // Send the request with fetch()
+  return fetch(request)
+    .then(function (res) {
+      return res;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+// POST request to delete a all interactions
+export const deleteInteractions = () => {
+  // the URL for the request
+  const url = "/deleteinteractions";
+
+  // Create our request constructor with all the parameters we need
+  const request = new Request(domain_url + url, {
+    method: "POST",
+    body: JSON.stringify({}),
+    credentials: "include",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json"
+    }
+  });
+
+  // Send the request with fetch()
+  return fetch(request)
+    .then(function (res) {
+      return res;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+// GET all interactions
+export const getInteractions = () => {
+  // the URL for the request
+  const url = "/interactions";
+
+  const request = new Request(domain_url + url, global_options);
+
+  return fetch(request)
+    .then(res => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        alert("Could not get responses");
+      }
+    })
+    .catch(error => {
+      console.log("failed to get the resources")
+      console.log(error);
+    });
+};
   
