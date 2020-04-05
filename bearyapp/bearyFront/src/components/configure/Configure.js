@@ -59,7 +59,7 @@ class Configure extends React.Component {
       </div>
       <div className={"Navigation"}>
           <Link className={"NavLinks"} to="/configure"><h5> Configure </h5></Link>
-          <Link className={"NavLinks"} to="/logs"><h5> Response Logs </h5></Link>
+          <Link className={"NavLinks"} to="/logs"><h5> Responses </h5></Link>
           <Link className={"NavLinks"} to="/interactionlogs"><h5> Interaction Logs </h5></Link>
       </div>
 
